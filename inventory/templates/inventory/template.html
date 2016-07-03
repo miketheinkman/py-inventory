@@ -1,0 +1,75 @@
+{% load staticfiles %}
+
+<!-- Modernizr -->
+<script src="{% static 'js/libs/modernizr-2.6.2.min.js' %}"></script>
+<!-- framework css -->
+<!--[if gt IE 9]><!-->
+<link type="text/css" rel="stylesheet" href="{% static 'css/groundwork.css' %}">
+<!--<![endif]-->
+<!--[if lte IE 9]>
+<link type="text/css" rel="stylesheet" href="{% static 'css/groundwork-core.css' %}">
+<link type="text/css" rel="stylesheet" href="{% static 'css/groundwork-type.css' %}">
+<link type="text/css" rel="stylesheet" href="{% static 'css/groundwork-ui.css' %}">
+<link type="text/css" rel="stylesheet" href="{% static 'css/groundwork-anim.css' %}">
+<link type="text/css" rel="stylesheet" href="{% static 'css/groundwork-ie.css' %}">
+<![endif]-->
+
+<div class="row">
+    <div class="one third box asphalt responsive">
+    <h1 class="align-center responsive" data-compression="8"><strong>
+        <a href="{% url 'inventory:index' %}">PyInventory</a></strong></h1>
+</div>
+
+
+    <div class="one sixth responsive align-center tooltip" title="Add Items" data-compression="3">
+
+        <a href="{% url 'inventory:add' %}"><i class="icon-plus green"></i> </a>
+</div>
+
+
+   <div class="one sixth responsive align-center tooltip" title="Remove Items" data-compression="3">
+
+        <a href="{% url 'inventory:remove' %}"><i class="icon-minus-sign red"></i></a>
+</div>
+
+<div class="one third box asphalt responsive">
+    <h1 class="align-center responsive" data-compression="8">
+        <a href="{% url 'inventory:vendors' %}"><strong>Shopping List</strong></a></h1>
+</div>
+</div>
+<div class="box asphalt"></div>
+
+
+{% block body %}
+{% endblock %}
+
+<div class="asphalt box"></div>
+
+<div class="row">
+    <div class="one third align-center">
+        <ul class="unstyled">
+            <li><a href="{% url 'inventory:index' %}"><p class="asphalt">Home</p></a> </li>
+            <li><a href="/admin"><p class="asphalt">Admin</p></a> </li>
+        </ul>
+    </div>
+    <div class="one third align-center">
+        <ul class="unstyled">
+            <li><a href="{% url 'inventory:add' %}"><p class="asphalt">Add</p></a> </li>
+            <li><a href="{% url 'inventory:remove' %}"><p class="asphalt">Remove</p></a> </li>
+        </ul>
+    </div>
+    <div class="one third align-center">
+        <ul class="unstyled">
+            <li><a href="{% url 'inventory:help' %}"><p class="asphalt">Help</p></a> </li>
+            <li><a href="{% url 'inventory:logout' %}"><p class="asphalt">Logout</p></a> </li>
+        </ul>
+    </div>
+</div>
+
+<footer class="asphalt box"></footer>
+
+
+
+
+<script type="text/javascript" src="{% static 'js/libs/jquery-1.10.2.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/groundwork.all.js' %}"></script>

@@ -1,0 +1,32 @@
+{% extends 'inventory/template.html' %}
+
+{% block body %}
+
+
+
+<div class="align-center">
+
+     {% if vendor %}
+
+    <div class="box blue responsive triple-gapped" data-compression="16">
+        <a href="{% url 'inventory:email' %}/{{vendor}}">
+    Email List To Vendor
+    </a> </div>
+
+        {% endif %}
+
+
+    {% if context %}
+
+    {% for a in context %}
+    <div class="box dismissible asphalt responsive triple-gapped" data-compression="16">{{a.name}}
+        {{a.quantity}}</div>
+    {% endfor %}
+
+    {% else %}
+    <div class="box asphalt responsive triple-gapped" data-compression="16"><a href="{% url 'inventory:index' %}">
+        Home</a> </div>
+    {% endif %}
+
+</div>
+{% endblock %}

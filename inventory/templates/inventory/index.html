@@ -1,0 +1,54 @@
+{% extends 'inventory/template.html' %}
+
+{% block body %}
+
+{% if messages %}
+{% for m in messages %}
+
+    <div class="align-center dismissible responsive blue box triple-gapped" data-compression="20">
+
+  <h1 class="responsive" data-compression="20">{{m}}</h1>
+        </div>
+{% endfor %}
+{% endif %}
+
+
+<div class="align-center">
+
+{% if context %}
+<table class="responsive asphalt" data-compression="10">
+    <thead>
+    <tr>
+        <th class="align-center">ITEM</th>
+        <th class="align-center">VENDOR</th>
+        <th class="align-center">QTY</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for a in context %}
+
+    <tr>
+        <td class="align-center"><a href="/admin/inventory/item/{{a.id}}">{{ a.item_name }}</a></td>
+        <td class="align-center"><a href="{% url 'inventory:listing' %}/{{a.item_vendor}}">{{ a.item_vendor }}</a></td>
+        <td class="align-center">{{ a.item_quantity }}</td>
+    </tr>
+
+    {% endfor %}
+    </tbody>
+    <tfoot>
+    <tr>
+        <td class="align-center"></td>
+        <td class="align-center"></td>
+        <td class="align-center"></td>
+    </tr>
+    </tfoot>
+</table>
+
+    {% else %}
+    <div class="box red align-center"><h3 class="responsive" data-compression="20">
+        <a href="/admin/inventory">Click to configure items</a>
+    </h3></div>
+    {% endif %}
+
+</div>
+{% endblock %}

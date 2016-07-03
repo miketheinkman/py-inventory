@@ -1,0 +1,88 @@
+{% extends 'inventory/template.html' %}
+
+{% block body %}
+
+<div class="row align-center">
+      <div class="box triple-gapped">
+          <h1 class="responsive red" data-compression="20"><strong>Help</strong></h1>
+
+
+  </div>
+      </div>
+
+
+
+  <div class="row align-center" id="getting-started">
+      <div class="box triple-gapped">
+          <h3><strong>Getting started:</strong></h3>
+          <p>
+              py-inventory is a simple app that allows for tracking of household objects by vendor and generates
+              shopping lists accordingly. To use py-inventory, the first thing you should do is configure at least
+              one vendor. You must have a vendor before you can configure and track individual items.
+          </p>
+          <p>
+              The best way to run this app in my opinion is to host it in the cloud (I use Heroku, and this project is
+              configured to be pushed to there with no further setup), and then configure a raspberry pi with a
+              touchscreen and a barcode scanner to sit on the remove product screen. I installed
+              the screen above my kitchen trash can, and when I throw an item away, I scan it first. The scanner sends
+              a newline at the end of the code, so I don't have to touch the screen at all to remove product in
+              quantities of one. To scan product in, just pust the "plus" on the header and scan the same way.
+          </p>
+          <p>
+              If the app is cloud hosted, you can view your shopping lists on your smartphone while you are in the
+              store (or send an email with needed items). The shopping lists are done in dismissable div tags, so you
+              can press the list item to remove it as you shop. These are just dismissable divs, not two way data
+              binding, so a refresh will restore the entire list. Personally I just use a desktop bookmark for the
+              vendors page. From there I can select the vendor list that I need based on the store that I am in.
+          </p>
+          <p>
+              Another cool thing I like to do is use a barcode keyboard on my Android (not sure if they have one for
+              iOS). The barcode keyboard allows you to populate forms with scanned barcodes, so it is a nice substitute
+              for the raspberry pi and barcode scanner (though to be honest the keyboard is a lot more cumbersome
+              than the simplicity of the raspberry pi setup)
+          </p>
+
+  </div>
+      </div>
+
+      <div class="row align-center" id="vendors">
+      <div class="box triple-gapped">
+          <h3><strong>Vendors:</strong></h3>
+          <p>
+                To configure a vendor, login to the <a href="/admin">admin</a> panel of py-inventory and click the "add"
+              button next to "vendor". All you need to do from there is configure a vendor name and email where you want
+              to send shopping lists. This could be your email, or it could be the email of the vendor if they offer
+              delivery or shopping services. After you have at least one vendor, you can configure the items that come
+              from that particular vendor.
+          </p>
+      </div>
+  </div>
+
+      <div class="row align-center" id="items">
+      <div class="box triple-gapped">
+          <h3><strong>Items:</strong></h3>
+          <p>
+                Item objects have a name, description, cost, vendor, quantity, use quantity, order point, max quantity.
+              and barcode. All item movement can be controlled by a barcode scanner, or a barcode keyboard on your
+              smartphone. This will allow you to scan items as you throw them away to automatically generate a list of
+              needed items when the inventory level falls below the order point.
+          </p>
+
+
+      </div>
+  </div>
+<div class="row align-center" id="emails">
+      <div class="box triple-gapped">
+          <h3><strong>Emails:</strong></h3>
+          <p>
+               If you want to configure emails to yourself or a vendor, configure the email settings
+              near the top of the settings.py folder in the main project folder. Once configured, You
+              can send lists of needed items by vendor.
+          </p>
+
+
+      </div>
+  </div>
+
+
+{% endblock %}

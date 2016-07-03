@@ -1,0 +1,29 @@
+{% extends 'inventory/template.html' %}
+
+{% block body %}
+{% if message %}
+<div class="box green dismissible align-center"><h3 class="responsive" data-compression="20">{{message}}</h3></div>
+{% endif %}
+
+{% if error %}
+<div class="box red align-center"><h3 class="responsive" data-compression="20"><a href="{% url 'inventory:help' %}">
+{{error}}</a></h3></div>
+{% endif %}
+
+<div class="row">
+<div class="align-center two fourths skip-one triple-gapped">
+<form action="{% url 'inventory:remove' %}" method="post">
+    {% csrf_token %}
+    <fieldset class="responsive" data-compression="15">
+        <div class="box asphalt triple-gapped"><input type="text" id="barcode" name="barcode" autofocus></div>
+        <div class="box asphalt triple-gapped"><input type="number" id="quantity" name="quantity" value="1"></div>
+
+
+        <button class="large asphalt triple-gapped" type="submit">Remove</button>
+    </fieldset>
+</form>
+
+<h1 class="asphalt responsive"></h1>
+</div>
+    </div>
+{% endblock %}
